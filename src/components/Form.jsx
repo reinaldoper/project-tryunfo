@@ -19,7 +19,7 @@ class Form extends Component {
             onChange={ onInputChange }
           />
         </label>
-        <label htmlFor="cardAttr1">
+        <label htmlFor="carta-descricao">
           Descrição
           <textarea
             name="cardDescription"
@@ -27,6 +27,7 @@ class Form extends Component {
             value={ cardDescription }
             onChange={ onInputChange }
             placeholder="Descrição"
+            id="carta-descricao"
           />
         </label>
         <input
