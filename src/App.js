@@ -20,6 +20,12 @@ class App extends React.Component {
     this.state = valores;
   }
 
+  disabledButon = () => {
+    this.setState({
+      isSaveButtonDisabled: true,
+    });
+  }
+
   saveButon = () => {
     const item = 210;
     const item3 = 90;
@@ -40,6 +46,8 @@ class App extends React.Component {
       this.setState({
         isSaveButtonDisabled: false,
       });
+    } else {
+      this.disabledButon();
     }
   }
 
