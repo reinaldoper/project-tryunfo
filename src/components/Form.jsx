@@ -17,6 +17,8 @@ class Form extends Component {
             placeholder="Nome carta"
             value={ cardName }
             onChange={ onInputChange }
+            name="cardName"
+            required
           />
         </label>
         <label htmlFor="carta-descricao">
@@ -28,6 +30,7 @@ class Form extends Component {
             onChange={ onInputChange }
             placeholder="Descrição"
             id="carta-descricao"
+            required
           />
         </label>
         <input
@@ -36,6 +39,7 @@ class Form extends Component {
           data-testid="attr1-input"
           value={ cardAttr1 }
           onChange={ onInputChange }
+          required
         />
         <input
           type="number"
@@ -43,6 +47,7 @@ class Form extends Component {
           data-testid="attr2-input"
           value={ cardAttr2 }
           onChange={ onInputChange }
+          required
         />
         <input
           type="number"
@@ -50,6 +55,7 @@ class Form extends Component {
           data-testid="attr3-input"
           value={ cardAttr3 }
           onChange={ onInputChange }
+          required
         />
         <input
           type="text"
@@ -57,16 +63,18 @@ class Form extends Component {
           data-testid="image-input"
           value={ cardImage }
           onChange={ onInputChange }
+          required
         />
         <select
           data-testid="rare-input"
           name="cardRare"
           value={ cardRare }
           onChange={ onInputChange }
+          required
         >
-          <option>normal</option>
-          <option>raro</option>
-          <option>muito raro</option>
+          <option value="normal">normal</option>
+          <option value="raro">raro</option>
+          <option value="muito raro">muito raro</option>
         </select>
         <input
           type="checkbox"
@@ -100,5 +108,4 @@ Form.propTypes = {
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,
 };
-
 export default Form;

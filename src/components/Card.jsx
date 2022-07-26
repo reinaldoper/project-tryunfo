@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 class Card extends Component {
   render() {
-    const { current } = this.props;
     const { cardName,
       cardDescription,
       cardAttr1,
@@ -11,7 +10,11 @@ class Card extends Component {
       cardAttr3,
       cardImage,
       cardRare,
-      cardTrunfo } = current;
+      cardTrunfo } = this.props;
+    let currentValu;
+    if (cardTrunfo) {
+      currentValu = <p data-testid="trunfo-card">Super Trunfo</p>;
+    }
     return (
       <div>
         <p data-testid="name-card">{cardName}</p>
@@ -25,7 +28,7 @@ class Card extends Component {
         <p data-testid="attr2-card">{cardAttr2}</p>
         <p data-testid="attr3-card">{cardAttr3}</p>
         <p data-testid="rare-card">{cardRare}</p>
-        { cardTrunfo && <p data-testid="trunfo-card">Super Trunfo</p> }
+        { currentValu }
       </div>
     );
   }
@@ -39,6 +42,5 @@ Card.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
-  current: PropTypes.string.isRequired,
 };
 export default Card;
