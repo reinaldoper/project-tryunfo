@@ -6,6 +6,19 @@ import './index.css';
 const valores = {
   cardName: '',
   cardDescription: '',
+  cardAttr1: '',
+  cardAttr2: '',
+  cardAttr3: '',
+  cardImage: '',
+  cardRare: '',
+  cardTrunfo: false,
+  isSaveButtonDisabled: true,
+  saveForm: [],
+};
+
+const valoresIniciais = {
+  cardName: '',
+  cardDescription: '',
   cardAttr1: 0,
   cardAttr2: 0,
   cardAttr3: 0,
@@ -40,8 +53,7 @@ class App extends React.Component {
     const item5 = Number(cardAttr2) < 0;
     const item6 = Number(cardAttr3) < 0;
     if (cardName.length > 0 && cardDescription.length > 0
-      && cardImage.length > 0 && cardRare.length > 0
-      && item2 && card1 && card2 && card3
+      && cardImage.length > 0 && cardRare.length > 0 && item2 && card1 && card2 && card3
       && !item4 && !item5 && !item6) {
       this.setState({
         isSaveButtonDisabled: false,
@@ -59,8 +71,26 @@ class App extends React.Component {
     }, () => this.saveButon());
   }
 
-  onSaveButtonClick = ({ target }) => {
-    target.preventDefault();
+  onSaveButtonClick = () => {
+    const {
+      cardName, cardDescription, cardAttr1,
+      cardAttr2, cardAttr3, cardImage, cardRare,
+      cardTrunfo, saveForm, hasTrunfo,
+    } = this.state;
+
+    const save = {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+      hasTrunfo,
+    };
+    this.setState({ saveForm: [...saveForm, save] });
+    this.setState({ ...valoresIniciais });
   }
 
   render() {
