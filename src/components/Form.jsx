@@ -21,6 +21,7 @@ class Form extends Component {
             required
           />
         </label>
+        <br />
         <label htmlFor="carta-descricao">
           Descrição
           <textarea
@@ -33,49 +34,75 @@ class Form extends Component {
             required
           />
         </label>
-        <input
-          type="number"
-          name="cardAttr1"
-          data-testid="attr1-input"
-          value={ cardAttr1 }
-          onChange={ onInputChange }
-          required
-        />
-        <input
-          type="number"
-          name="cardAttr2"
-          data-testid="attr2-input"
-          value={ cardAttr2 }
-          onChange={ onInputChange }
-          required
-        />
-        <input
-          type="number"
-          name="cardAttr3"
-          data-testid="attr3-input"
-          value={ cardAttr3 }
-          onChange={ onInputChange }
-          required
-        />
-        <input
-          type="text"
-          name="cardImage"
-          data-testid="image-input"
-          value={ cardImage }
-          onChange={ onInputChange }
-          required
-        />
-        <select
-          data-testid="rare-input"
-          name="cardRare"
-          value={ cardRare }
-          onChange={ onInputChange }
-          required
-        >
-          <option value="normal">normal</option>
-          <option value="raro">raro</option>
-          <option value="muito raro">muito raro</option>
-        </select>
+        <br />
+        <label htmlFor="card1">
+          Card atribute 1
+          <input
+            type="number"
+            name="cardAttr1"
+            data-testid="attr1-input"
+            value={ cardAttr1 }
+            onChange={ onInputChange }
+            required
+            id="card1"
+          />
+        </label>
+        <br />
+        <label htmlFor="card2">
+          Card atribute 2
+          <input
+            type="number"
+            name="cardAttr2"
+            data-testid="attr2-input"
+            value={ cardAttr2 }
+            onChange={ onInputChange }
+            required
+            id="card2"
+          />
+        </label>
+        <br />
+        <label htmlFor="card3">
+          Card atribute 3
+          <input
+            type="number"
+            name="cardAttr3"
+            data-testid="attr3-input"
+            value={ cardAttr3 }
+            onChange={ onInputChange }
+            required
+            id="card3"
+          />
+        </label>
+        <br />
+        <label htmlFor="img">
+          Imagem
+          <input
+            type="text"
+            name="cardImage"
+            data-testid="image-input"
+            value={ cardImage }
+            onChange={ onInputChange }
+            required
+            id="img"
+          />
+        </label>
+        <br />
+        <label htmlFor="select">
+          Select
+          <select
+            data-testid="rare-input"
+            name="cardRare"
+            value={ cardRare }
+            onChange={ onInputChange }
+            required
+            id="select"
+          >
+            <option value="normal">normal</option>
+            <option value="raro">raro</option>
+            <option value="muito raro">muito raro</option>
+          </select>
+        </label>
+        <br />
         <input
           type="checkbox"
           name="cardTrunfo"
@@ -83,6 +110,7 @@ class Form extends Component {
           checked={ cardTrunfo }
           onChange={ onInputChange }
         />
+        <br />
         <button
           type="button"
           data-testid="save-button"
