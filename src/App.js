@@ -12,6 +12,7 @@ const valores = {
   cardImage: '',
   cardRare: '',
   cardTrunfo: false,
+  hasTrunfo: false,
   isSaveButtonDisabled: true,
   saveForm: [],
 };
@@ -43,7 +44,7 @@ class App extends React.Component {
     const item = 210;
     const item3 = 90;
     const { cardName, cardDescription, cardImage, cardRare,
-      cardAttr1, cardAttr2, cardAttr3 } = this.state;
+      cardAttr1, cardAttr2, cardAttr3, cardTrunfo } = this.state;
     const valor = (Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3));
     const item2 = valor <= item;
     const card1 = Number(cardAttr1) <= item3;
@@ -55,6 +56,11 @@ class App extends React.Component {
     if (cardName.length > 0 && cardDescription.length > 0
       && cardImage.length > 0 && cardRare.length > 0 && item2 && card1 && card2 && card3
       && !item4 && !item5 && !item6) {
+      if (cardTrunfo === true) {
+        this.setState({
+          hasTrunfo: true,
+        });
+      }
       this.setState({
         isSaveButtonDisabled: false,
       });
