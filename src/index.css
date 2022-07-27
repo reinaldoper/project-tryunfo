@@ -1,4 +1,5 @@
 body {
+  background-color: aqua;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -15,6 +16,6 @@ code {
   background-color: aqua;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin: auto;
+  justify-content: space-between;
+  margin-left: 30%;
 }
