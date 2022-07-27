@@ -15,6 +15,7 @@ const valores = {
   cardTrunfo: false,
   hasTrunfo: false,
   isSaveButtonDisabled: true,
+  ids: 0,
   saveForm: [],
 };
 
@@ -42,6 +43,9 @@ class App extends React.Component {
   }
 
   saveButon = () => {
+    const myId = 100;
+    let id = Math.random();
+    id = Math.floor(id * myId);
     const item = 210;
     const item3 = 90;
     const { cardName, cardDescription, cardImage, cardRare,
@@ -64,6 +68,7 @@ class App extends React.Component {
       }
       this.setState({
         isSaveButtonDisabled: false,
+        ids: id,
       });
     } else {
       this.disabledButon();
@@ -82,7 +87,7 @@ class App extends React.Component {
     const {
       cardName, cardDescription, cardAttr1,
       cardAttr2, cardAttr3, cardImage, cardRare,
-      cardTrunfo, saveForm, hasTrunfo,
+      cardTrunfo, saveForm, hasTrunfo, ids,
     } = this.state;
 
     const save = {
@@ -95,9 +100,18 @@ class App extends React.Component {
       cardRare,
       cardTrunfo,
       hasTrunfo,
+      ids,
     };
     this.setState({ saveForm: [...saveForm, save] });
     this.setState({ ...valoresIniciais });
+  }
+
+  delete = (item) => {
+    const { saveForm } = this.state;
+    const atualizaList = saveForm.filter((list) => list.ids !== item);
+    this.setState({
+      saveForm: atualizaList,
+    });
   }
 
   render() {
@@ -131,7 +145,10 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
-        <List listCart={ saveForm } />
+        <List
+          listCart={ saveForm }
+          onDelete={ this.delete }
+        />
       </div>
     );
   }
