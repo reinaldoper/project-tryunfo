@@ -108,6 +108,13 @@ class App extends React.Component {
 
   delete = (item) => {
     const { saveForm } = this.state;
+    const atualizaCard = saveForm.some((list) => list.ids === item && list.hasTrunfo);
+    console.log(atualizaCard);
+    if (atualizaCard) {
+      this.setState({
+        hasTrunfo: false,
+      });
+    }
     const atualizaList = saveForm.filter((list) => list.ids !== item);
     this.setState({
       saveForm: atualizaList,
