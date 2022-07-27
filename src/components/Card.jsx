@@ -12,11 +12,7 @@ class Card extends Component {
       cardRare,
       cardTrunfo,
       listCart } = this.props;
-    console.log(listCart);
-    /* let currentValu;
-    if (cardTrunfo) {
-      currentValu = <p data-testid="trunfo-card">Super Trunfo</p>;
-    } */
+
     return (
       <div>
         <p data-testid="name-card">{cardName}</p>
@@ -33,7 +29,7 @@ class Card extends Component {
         { cardTrunfo && <p data-testid="trunfo-card">Super Trunfo</p>}
         {listCart.map((item, index) => (
           <div key={ index }>
-            <span>Dados salvos</span>
+            <span>------Dados salvos------</span>
             <p key={ index }>{item.cardName}</p>
             <p key={ index }>{item.cardImage}</p>
             <p key={ index }>{item.cardDescription}</p>
