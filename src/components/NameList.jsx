@@ -24,7 +24,7 @@ class NameList extends Component {
     const atualiza = listCart.filter((item) => {
       const card = item.cardName;
       if (cont > 0) {
-        return card.includes(newList);
+        return card === newList;
       }
       return 0;
     });
