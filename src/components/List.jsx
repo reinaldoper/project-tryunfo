@@ -8,15 +8,15 @@ class List extends Component {
       <section>
         <strong>Lista de cartas</strong>
         {listCart.map((item, index) => (
-          <div key={ index }>
+          <ul key={ index }>
             <span><strong><em>------Dados salvos------</em></strong></span>
-            <p key={ index + 1 }>{item.cardName}</p>
-            <p key={ index + 1 }>{item.cardImage}</p>
-            <p key={ index + 1 }>{item.cardDescription}</p>
-            <p key={ index + 1 }>{item.cardAttr1}</p>
-            <p key={ index + 1 }>{item.cardAttr2}</p>
-            <p key={ index + 1 }>{item.cardAttr3}</p>
-            <p key={ index + 1 }>{item.cardRare}</p>
+            <li>{item.cardName}</li>
+            <li>{item.cardImage}</li>
+            <li>{item.cardDescription}</li>
+            <li>{item.cardAttr1}</li>
+            <li>{item.cardAttr2}</li>
+            <li>{item.cardAttr3}</li>
+            <li>{item.cardRare}</li>
             <button
               type="button"
               data-testid="delete-button"
@@ -24,7 +24,7 @@ class List extends Component {
             >
               Excluir
             </button>
-          </div>
+          </ul>
         ))}
       </section>
     );

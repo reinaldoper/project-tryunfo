@@ -2,6 +2,7 @@ import React from 'react';
 import Card from './components/Card';
 import Form from './components/Form';
 import List from './components/List';
+import NameList from './components/NameList';
 import './index.css';
 
 const valores = {
@@ -109,7 +110,6 @@ class App extends React.Component {
   delete = (item) => {
     const { saveForm } = this.state;
     const atualizaCard = saveForm.some((list) => list.ids === item && list.hasTrunfo);
-    console.log(atualizaCard);
     if (atualizaCard) {
       this.setState({
         hasTrunfo: false,
@@ -156,6 +156,8 @@ class App extends React.Component {
           listCart={ saveForm }
           onDelete={ this.delete }
         />
+        <NameList listCart={ saveForm } />
+        { this.onClickView }
       </div>
     );
   }
