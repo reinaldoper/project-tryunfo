@@ -140,6 +140,10 @@ class App extends React.Component {
           onSaveButtonClick={ this.onSaveButtonClick }
           onInputChange={ this.onInputChange }
         />
+        <List
+          listCart={ saveForm }
+          onDelete={ this.delete }
+        />
         <Card
           cardName={ cardName }
           cardDescription={ cardDescription }
@@ -149,10 +153,6 @@ class App extends React.Component {
           cardImage={ cardImage }
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
-        />
-        <List
-          listCart={ saveForm }
-          onDelete={ this.delete }
         />
       </div>
     );
