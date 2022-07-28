@@ -2,7 +2,6 @@ import React from 'react';
 import Card from './components/Card';
 import Form from './components/Form';
 import List from './components/List';
-import NameList from './components/NameList';
 import './index.css';
 
 const valores = {
@@ -127,7 +126,6 @@ class App extends React.Component {
       isSaveButtonDisabled, saveForm } = this.state;
     return (
       <div className="app">
-        <h1>Tryunfo</h1>
         <Form
           cardName={ cardName }
           cardDescription={ cardDescription }
@@ -156,8 +154,6 @@ class App extends React.Component {
           listCart={ saveForm }
           onDelete={ this.delete }
         />
-        <NameList listCart={ saveForm } />
-        { this.onClickView }
       </div>
     );
   }

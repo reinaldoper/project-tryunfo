@@ -15,7 +15,10 @@ code {
 .app {
   background-color: aqua;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-left: 30%;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-left: 10%;
+}
+li {
+  list-style-type: none;
 }

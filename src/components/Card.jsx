@@ -14,6 +14,7 @@ class Card extends Component {
 
     return (
       <section>
+        <h4>Preview</h4>
         <ul>
           <li data-testid="name-card">{cardName}</li>
           <img

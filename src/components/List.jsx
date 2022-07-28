@@ -1,17 +1,52 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+const values = {
+  newList: '',
+};
 class List extends Component {
+  constructor(props) {
+    super(props);
+    this.state = values;
+  }
+
+  filterList = ({ target }) => {
+    this.setState({
+      newList: target.value,
+    });
+  }
+
   render() {
     const { listCart, onDelete } = this.props;
+    const { newList } = this.state;
+    let result;
+    if (newList.length > 0) {
+      result = listCart.filter((item) => {
+        const card = item.cardName;
+        return card.includes(newList);
+      });
+    } else {
+      result = listCart;
+    }
+
     return (
       <section>
-        <strong>Lista de cartas</strong>
-        {listCart.map((item, index) => (
+        <h4>Lista de cartas</h4>
+        <input
+          type="text"
+          data-testid="name-filter"
+          onChange={ this.filterList }
+          placeholder="filter"
+        />
+        {result.map((item, index) => (
           <ul key={ index }>
-            <span><strong><em>------Dados salvos------</em></strong></span>
             <li>{item.cardName}</li>
-            <li>{item.cardImage}</li>
+            <li>
+              <img
+                src={ item.cardImage }
+                alt={ item.cardName }
+              />
+            </li>
             <li>{item.cardDescription}</li>
             <li>{item.cardAttr1}</li>
             <li>{item.cardAttr2}</li>

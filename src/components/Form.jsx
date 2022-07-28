@@ -20,7 +20,8 @@ class Form extends Component {
     }
 
     return (
-      <form>
+      <form className="form">
+        <h1>Tryunfo</h1>
         <label htmlFor="dame-carta">
           Nome da carta
           <input
