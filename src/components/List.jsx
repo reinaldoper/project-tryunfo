@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Trunfo from './Trunfo';
 
 const values = {
   newList: '',
+  trunfo: false,
 };
 class List extends Component {
   constructor(props) {
@@ -16,9 +18,18 @@ class List extends Component {
     });
   }
 
+  onInputChange = ({ target }) => {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({
+      [name]: value,
+    });
+  }
+
   render() {
     const { listCart, onDelete } = this.props;
-    const { newList } = this.state;
+    const { newList, trunfo } = this.state;
+    console.log(trunfo);
     let result;
     if (newList === 'normal' || newList === 'raro'
       || newList === 'muito raro') {
@@ -36,15 +47,20 @@ class List extends Component {
     } else {
       result = listCart;
     }
-
+    if (trunfo) {
+      result = listCart.filter((item) => item.cardTrunfo !== false);
+      console.log(result);
+    }
     return (
       <section>
-        <h4>Lista de cartas</h4>
+        <h4>List</h4>
         <input
           type="text"
           data-testid="name-filter"
           onChange={ this.filterList }
           placeholder="filter"
+          id="list-carta"
+          disabled={ trunfo }
         />
         <label htmlFor="select">
           Select
@@ -53,6 +69,7 @@ class List extends Component {
             onChange={ this.filterList }
             required
             id="select"
+            disabled={ trunfo }
           >
             <option value="todas">todas</option>
             <option value="normal">normal</option>
@@ -83,6 +100,10 @@ class List extends Component {
             </button>
           </ul>
         ))}
+        <Trunfo
+          trunfo={ trunfo }
+          onInputChange={ this.onInputChange }
+        />
       </section>
     );
   }
@@ -90,7 +111,7 @@ class List extends Component {
 List.propTypes = {
   listCart: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
-  /* ids: PropTypes.number.isRequired, */
+  /* hasTrunfo: PropTypes.bool.isRequired, */
 };
 
 export default List;

@@ -143,6 +143,7 @@ class App extends React.Component {
         <List
           listCart={ saveForm }
           onDelete={ this.delete }
+          hasTrunfo={ hasTrunfo }
         />
         <Card
           cardName={ cardName }
