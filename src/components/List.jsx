@@ -20,7 +20,15 @@ class List extends Component {
     const { listCart, onDelete } = this.props;
     const { newList } = this.state;
     let result;
-    if (newList.length > 0) {
+    if (newList === 'normal' || newList === 'raro'
+      || newList === 'muito raro') {
+      result = listCart.filter((item) => {
+        const card = item.cardRare === newList;
+        return card;
+      });
+    } else if (newList === 'todas') {
+      result = listCart;
+    } else if (newList.length > 0) {
       result = listCart.filter((item) => {
         const card = item.cardName;
         return card.includes(newList);
@@ -38,6 +46,20 @@ class List extends Component {
           onChange={ this.filterList }
           placeholder="filter"
         />
+        <label htmlFor="select">
+          Select
+          <select
+            data-testid="rare-filter"
+            onChange={ this.filterList }
+            required
+            id="select"
+          >
+            <option value="todas">todas</option>
+            <option value="normal">normal</option>
+            <option value="raro">raro</option>
+            <option value="muito raro">muito raro</option>
+          </select>
+        </label>
         {result.map((item, index) => (
           <ul key={ index }>
             <li>{item.cardName}</li>
