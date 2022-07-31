@@ -9,6 +9,7 @@ class Form extends Component {
     let current;
     if (!hasTrunfo) {
       current = (<input
+        className="box"
         type="checkbox"
         name="cardTrunfo"
         data-testid="trunfo-input"
@@ -117,6 +118,7 @@ class Form extends Component {
           </select>
         </label>
         <br />
+        <span>Trunfo</span>
         { current }
         <br />
         <button

@@ -52,8 +52,8 @@ class List extends Component {
       console.log(result);
     }
     return (
-      <section>
-        <h4>List</h4>
+      <section className="list">
+        <h4>Jogadores</h4>
         <input
           type="text"
           data-testid="name-filter"
@@ -79,18 +79,36 @@ class List extends Component {
         </label>
         {result.map((item, index) => (
           <ul key={ index }>
-            <li>{item.cardName}</li>
+            <li>
+              <span>Nome: </span>
+              {item.cardName}
+            </li>
             <li>
               <img
                 src={ item.cardImage }
                 alt={ item.cardName }
               />
             </li>
-            <li>{item.cardDescription}</li>
-            <li>{item.cardAttr1}</li>
-            <li>{item.cardAttr2}</li>
-            <li>{item.cardAttr3}</li>
-            <li>{item.cardRare}</li>
+            <li>
+              <span>Descrição: </span>
+              {item.cardDescription}
+            </li>
+            <li>
+              <span>Caracteristica 1: </span>
+              {item.cardAttr1}
+            </li>
+            <li>
+              <span>Caracteristica 2: </span>
+              {item.cardAttr2}
+            </li>
+            <li>
+              <span>Caracteristica 3: </span>
+              {item.cardAttr3}
+            </li>
+            <li>
+              <span>Raridade: </span>
+              {item.cardRare}
+            </li>
             <button
               type="button"
               data-testid="delete-button"
